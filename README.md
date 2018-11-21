@@ -35,4 +35,3 @@ assert 'CAMERA' == self.driver.find_element_by_id('MyTextBox').text
 
 ```
 ```
-
