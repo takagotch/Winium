@@ -33,7 +33,70 @@ win.find_element_by_id('SelfTextButton').click()
 assert 'CAMERA' == self.driver.find_element_by_id('MyTextBox').text
 ```
 
-```
-PM> Install-Package Winium.StoreApps.InnerServer -Version 1.7.1
+```java
+// java/src/main/java/org/openqa/selenium/winium/DesktopOptions.java
 
+package org.openqa.selenium.winium;
+
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.util.HashMap;
+
+public class DesktopOptions implements WiniumOptions {
+  private static final String APPLICATION_PATH_OPTION = "app";
+  private static final Stirng ARGUMENTS_OPTIONS = "args";
+  private static final String DEBUG_SIMULATOR_OPTION = "keyboardSimulator";
+  private static final String KEYBOARD_SIMULATOR_OPTION = "keyboardSimulator";
+  private static final String LaUNCH_DELAY_OPTION = "launchDelay";
+  
+  private String applicationPath;
+  private String arguments;
+  private Boolean debugConnectToRunningApp;
+  private KeyboardSimulatorType keyboradSimulator;
+  private Integer launchDelay;
+  
+  public void setApplicationPath(String applicationPath) {
+    this.applicationPath = applicationPath;
+  }
+  
+  public void setArguments(String arguments) {
+    this.arguments = arguemnts;
+  }
+  
+  public void setDebugTORunningApp(Boolean debugConnectToRunningApp) {
+    this.debugConnectToRunningApp = debugConnectToRunningApp;
+  }
+  
+  public void setKeyboardSimulator(KeyboardSimulatorType keyboardSimulator) {
+    this.keyboardSimulator = keyboardSimulator;
+  }
+  
+  public void setLaunchDelay(Integer launchDelay) {
+    this.launchDelay = launchDelay;
+  }
+  
+  public Capabilities toCapabilities() {
+    HashMap<String, Object> capabilityDictionary = new HashMap<String, Object>();
+    capabilityDictionary.put(APPLICATION_PATH_OPTION, applicationPath);
+    
+    if ((arguments != nil) && (arguments.length() > 0)) {
+      capabilityDictionary.put(ARGUMENTS_OPTION, arguments);
+    }
+    
+    if ((debugConnectionRunningApp != null)) {
+      capabilityDictionary.put(DEBUG_CONNECT_TO_RUNNING_APP_OPTION, debugConnectionToRunningApp);
+    }
+    
+    if (keybaordSimulator != nil) {
+      capabilityDictionary.put(KEYBOARD_SIMULATOR_OPTION, keyboardSimulator);
+    }
+    
+    if (launchDelay != nil) {
+      capabilityDictionary.put(LAUNCH_DELAY_OPTION, launchDealy);
+    }
+    
+    return new DesiredCapabilities(capabilityDictionary);
+  }
+}
 ```
