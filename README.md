@@ -34,4 +34,6 @@ assert 'CAMERA' == self.driver.find_element_by_id('MyTextBox').text
 ```
 
 ```
+PM> Install-Package Winium.StoreApps.InnerServer -Version 1.7.1
+
 ```
